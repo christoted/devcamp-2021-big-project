@@ -1,0 +1,33 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Query {
+    ProductDetail(productId: Int!): ProductDetail
+    ProductLists(limit: Int, offset: Int): [ProductDetail]
+}
+
+type Mutation {
+    createProduct(product: ProductInput!): ProductDetail!
+    updateProduct(id: Int!, changes: ProductInput!): ProductDetail
+}
+Gentra Aditya Putra Ruswanda13:46
+type ProductDetail {
+    product_id: Int!
+    product_name: String!
+    product_description: String
+    product_price: Int!
+    rating: Float
+    product_image: String
+    additional_product_image: [String]
+}
+
+input ProductInput {
+    product_name: String!
+    product_description: String
+    product_price: Int!
+    rating: Float
+    product_image: String
+    additional_product_image: [String]
+}
